@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#090d16" />
+      <stop offset="45%" stopColor="#1e1b4b" />
+      <stop offset="85%" stopColor="#2e1065" />
+      <stop offset="100%" stopColor="#3b0764" />
+    </linearGradient>
+
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stopColor="#fef08a" stop-opacity="1" />
+      <stop offset="50%" stopColor="#fef9c3" stop-opacity="0.8" />
+      <stop offset="85%" stopColor="#fef08a" stop-opacity="0.2" />
+      <stop offset="100%" stopColor="#fef08a" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="tinkGlow" cx="50%" cy="50%">
+      <stop offset="0%" stopColor="#fef08a" stop-opacity="1" />
+      <stop offset="40%" stopColor="#fde047" stop-opacity="0.8" />
+      <stop offset="100%" stopColor="#ca8a04" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#312e81" stop-opacity="0.4" />
+      <stop offset="50%" stopColor="#4338ca" stop-opacity="0.6" />
+      <stop offset="100%" stopColor="#312e81" stop-opacity="0.4" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="800" height="600" fill="url(#nightSky)" />
+
+  <!-- Stars in Twilight Sky -->
+  <g fill="#ffffff" opacity="0.8">
+    <circle cx="80" cy="90" r="2" />
+    <circle cx="140" cy="50" r="1.5" />
+    <circle cx="210" cy="110" r="2.5" />
+    <circle cx="280" cy="40" r="1.5" />
+    <circle cx="340" cy="80" r="2" />
+    <circle cx="490" cy="50" r="3" />
+    <circle cx="560" cy="90" r="1.5" />
+    <circle cx="630" cy="45" r="2.5" />
+    <circle cx="710" cy="75" r="2" />
+    <circle cx="760" cy="120" r="1.5" />
+    <circle cx="110" cy="200" r="1.5" />
+    <circle cx="170" cy="170" r="2" />
+    <circle cx="680" cy="180" r="2" />
+    <circle cx="740" cy="220" r="1.5" />
+  </g>
+
+  <!-- Special Second Star to the Right -->
+  <g transform="translate(620, 90)" filter="url(#glow)">
+    <polygon points="0,-12 3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3" fill="#fef08a" />
+    <circle cx="0" cy="0" r="4" fill="#ffffff" />
+  </g>
+  <g transform="translate(660, 115)" filter="url(#glow)">
+    <polygon points="0,-8 2,-2 8,0 2,2 0,8 -2,2 -8,0 -2,-2" fill="#e0e7ff" />
+  </g>
+
+  <!-- Full Moon & Soft Halo -->
+  <circle cx="240" cy="150" r="110" fill="url(#moonGlow)" />
+  <circle cx="240" cy="150" r="55" fill="#fef9c3" opacity="0.95" />
+  <ellipse cx="230" cy="140" rx="14" ry="18" fill="#fef08a" opacity="0.4" />
+  <ellipse cx="265" cy="165" rx="10" ry="12" fill="#fef08a" opacity="0.4" />
+
+  <!-- Whispy Midnight Clouds -->
+  <path d="M0 240 Q160 210 320 250 T640 220 T800 245 L800 280 L0 280 Z" fill="url(#cloudGrad)" />
+  <path d="M-50 310 Q200 280 440 320 T850 290 L850 340 L-50 340 Z" fill="url(#cloudGrad)" opacity="0.5" />
+
+  <!-- Distant London Silhouette & Big Ben Tower -->
+  <!-- Big Ben Tower on Left -->
+  <g transform="translate(90, 260)">
+    <!-- Tower Shaft -->
+    <rect x="35" y="80" width="70" height="260" fill="#090d16" />
+    <rect x="30" y="50" width="80" height="35" fill="#0c1222" />
+    <!-- Tower Spire -->
+    <polygon points="70,-40 30,50 110,50" fill="#090d16" />
+    <!-- Spire finial -->
+    <line x1="70" y1="-55" x2="70" y2="-40" stroke="#ca8a04" strokeWidth="4" />
+    <circle cx="70" cy="-55" r="4" fill="#eab308" />
+    <!-- Clock Face Glowing Gold -->
+    <circle cx="70" cy="68" r="24" fill="#fde047" stroke="#854d0e" strokeWidth="4" />
+    <circle cx="70" cy="68" r="20" fill="#fef9c3" />
+    <line x1="70" y1="68" x2="70" y2="54" stroke="#451a03" strokeWidth="3" strokeLinecap="round" />
+    <line x1="70" y1="68" x2="80" y2="72" stroke="#451a03" strokeWidth="2.5" strokeLinecap="round" />
+    <!-- Tower windows & details -->
+    <rect x="48" y="110" width="10" height="40" rx="4" fill="#1e293b" />
+    <rect x="82" y="110" width="10" height="40" rx="4" fill="#1e293b" />
+    <rect x="48" y="170" width="10" height="40" rx="4" fill="#1e293b" />
+    <rect x="82" y="170" width="10" height="40" rx="4" fill="#1e293b" />
+  </g>
+
+  <!-- London Rooftops and Chimneys -->
+  <path d="M0 480 L70 430 L160 480 L230 420 L300 470 L380 430 L450 480 L520 410 L600 470 L680 420 L750 460 L800 440 L800 600 L0 600 Z" fill="#090d16" />
+  <!-- Chimney pots -->
+  <rect x="190" y="390" width="14" height="40" fill="#090d16" />
+  <rect x="340" y="405" width="16" height="35" fill="#090d16" />
+  <rect x="490" y="380" width="15" height="45" fill="#090d16" />
+  <rect x="640" y="395" width="14" height="35" fill="#090d16" />
+  <!-- Warm Glowing Nursery Window in Rooftop -->
+  <rect x="670" y="465" width="35" height="45" rx="5" fill="#fde047" stroke="#b45309" strokeWidth="3" />
+  <line x1="687" y1="465" x2="687" y2="510" stroke="#b45309" strokeWidth="2" />
+  <line x1="670" y1="487" x2="705" y2="487" stroke="#b45309" strokeWidth="2" />
+
+  <!-- Golden Swirl of Fairy Dust Trail -->
+  <g filter="url(#glow)">
+    <path d="M370 230 Q440 260 510 200 T630 180" fill="none" stroke="#fde047" strokeWidth="4" strokeDasharray="3 9" strokeLinecap="round" />
+    <path d="M360 240 Q430 280 520 215 T640 190" fill="none" stroke="#ffffff" strokeWidth="2" strokeDasharray="2 12" />
+    <!-- Fairy Dust Stars -->
+    <circle cx="390" cy="240" r="3" fill="#fef08a" />
+    <circle cx="430" cy="265" r="4.5" fill="#fde047" />
+    <circle cx="460" cy="245" r="3" fill="#ffffff" />
+    <circle cx="485" cy="225" r="4" fill="#fef08a" />
+    <circle cx="515" cy="205" r="5" fill="#fde047" />
+    <circle cx="550" cy="190" r="3.5" fill="#ffffff" />
+    <circle cx="585" cy="180" r="4" fill="#fef08a" />
+  </g>
+
+  <!-- Tinker Bell Glowing Fairy -->
+  <g transform="translate(635, 175)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="28" fill="url(#tinkGlow)" />
+    <!-- Wings -->
+    <ellipse cx="-6" cy="-8" rx="10" ry="18" fill="#e0f2fe" opacity="0.8" transform="rotate(-30 -6 -8)" />
+    <ellipse cx="6" cy="-8" rx="10" ry="18" fill="#e0f2fe" opacity="0.8" transform="rotate(30 6 -8)" />
+    <!-- Fairy Body -->
+    <ellipse cx="0" cy="4" rx="4" ry="9" fill="#15803d" />
+    <circle cx="0" cy="-4" r="5" fill="#fed7aa" />
+    <circle cx="0" cy="-6" r="4" fill="#facc15" />
+    <!-- Sparkle Burst -->
+    <polygon points="0,-12 2,-2 12,0 2,2 0,12 -2,2 -12,0 -2,-2" fill="#ffffff" />
+  </g>
+
+  <!-- Peter Pan Flying Figure -->
+  <g transform="translate(390, 160) rotate(-12)">
+    <!-- Shadow / Back Arm -->
+    <path d="M40 70 L20 85" stroke="#14532d" strokeWidth="8" strokeLinecap="round" />
+    
+    <!-- Peter's Legs (Flying Backwards pose) -->
+    <path d="M25 80 L-10 100 L-45 105" stroke="#166534" strokeWidth="9" strokeLinecap="round" />
+    <path d="M28 85 L-5 115 L-30 130" stroke="#15803d" strokeWidth="9" strokeLinecap="round" />
+    <!-- Brown Moccasins / Boots -->
+    <ellipse cx="-48" cy="106" rx="8" ry="5" fill="#78350f" transform="rotate(-10 -48 106)" />
+    <ellipse cx="-33" cy="131" rx="8" ry="5" fill="#78350f" transform="rotate(15 -33 131)" />
+
+    <!-- Peter's Green Tunic Body -->
+    <path d="M20 50 Q45 45 60 55 L55 90 Q35 98 15 88 Z" fill="#22c55e" />
+    <!-- Tunic jagged hem -->
+    <polygon points="15,88 23,80 30,92 38,82 48,93 55,90 20,88" fill="#16a34a" />
+    <!-- Brown Belt & Dagger Sheath -->
+    <line x1="20" y1="72" x2="56" y2="74" stroke="#78350f" strokeWidth="4" />
+    <rect x="36" y="70" width="6" height="6" fill="#ca8a04" />
+    <path d="M44 74 L48 92" stroke="#92400e" strokeWidth="3.5" strokeLinecap="round" />
+
+    <!-- Leading Flying Arm (Reaching forward towards stars) -->
+    <path d="M55 58 L95 42 L130 35" stroke="#fed7aa" strokeWidth="8" strokeLinecap="round" />
+
+    <!-- Peter's Neck & Head -->
+    <circle cx="50" cy="38" r="7" fill="#fed7aa" />
+    <circle cx="54" cy="28" r="14" fill="#fed7aa" />
+    <!-- Expressive Flying Profile -->
+    <circle cx="60" cy="28" r="2.5" fill="#0f172a" />
+    <path d="M58 35 Q64 36 62 32" stroke="#9a3412" strokeWidth="2" fill="none" />
+    <!-- Auburn Hair -->
+    <path d="M42 24 Q50 12 64 20 Q56 26 44 28 Z" fill="#b45309" />
+    
+    <!-- Iconic Green Feather Cap -->
+    <path d="M44 20 Q54 6 72 16 Q60 24 46 22 Z" fill="#15803d" />
+    <!-- Red Feather in Cap -->
+    <path d="M42 20 Q32 0 44 -12 Q48 5 44 20 Z" fill="#dc2626" />
+    <line x1="43" y1="18" x2="43" y2="-10" stroke="#f87171" strokeWidth="1.5" />
+  </g>
+
+  <!-- Wendy Flying Beside in White Nightgown -->
+  <g transform="translate(290, 240) rotate(-8) scale(0.85)">
+    <!-- Blue Hair Ribbon -->
+    <circle cx="48" cy="22" r="5" fill="#38bdf8" />
+    <circle cx="50" cy="28" r="13" fill="#fed7aa" />
+    <!-- Brown Hair -->
+    <path d="M40 24 Q48 14 62 22 Q58 36 40 34 Z" fill="#78350f" />
+    <!-- Soft Flowing Light Blue Nightgown -->
+    <path d="M25 45 Q48 40 65 48 L70 100 Q40 115 10 95 Z" fill="#e0f2fe" opacity="0.95" />
+    <path d="M20 90 Q40 108 65 96 L60 102 Q38 116 12 95 Z" fill="#bae6fd" />
+    <!-- Floating Feet -->
+    <circle cx="16" cy="100" r="4" fill="#fed7aa" />
+    <circle cx="34" cy="105" r="4" fill="#fed7aa" />
+    <!-- Reaching Arms -->
+    <path d="M55 52 L85 45" stroke="#fed7aa" strokeWidth="6" strokeLinecap="round" />
+  </g>
+
+  <!-- Story Title Ribbon at Bottom -->
+  <g transform="translate(400, 555)">
+    <rect x="-240" y="-24" width="480" height="42" rx="21" fill="#0f172a" opacity="0.85" stroke="#eab308" strokeWidth="1.5" />
+    <text x="0" y="3" fill="#fef08a" fontSize="18" fontFamily="'Fraunces', Georgia, serif" fontWeight="bold" textAnchor="middle" letterSpacing="1">
+      Peter Pan: The Boy of Neverland
+    </text>
+  </g>
+</svg>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Story } from '../types/story';
 import { BookOpen, Sparkles, Clock, Volume2, ArrowRight } from 'lucide-react';
+import { CoverIllustration } from './CoverIllustrations';
 
 interface CoverScreenProps {
   stories: Story[];
@@ -15,6 +16,8 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({
   activeGenre,
   onSelectGenre,
 }) => {
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
+
   const genres = [
     { id: 'All', label: 'All Stories (전체)' },
     { id: 'Fantasy', label: 'Fantasy (판타지)' },
@@ -70,17 +73,25 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({
       {featuredStory && (
         <section className="bg-white rounded-3xl border border-stone-200 shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch">
           {/* Left / Top: High-Fidelity Cover Artwork */}
-          <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[400px] bg-stone-100 overflow-hidden">
-            <img
-              src={featuredStory.coverImage}
-              alt={featuredStory.title}
-              referrerPolicy="no-referrer"
+          <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[400px] bg-stone-900 overflow-hidden flex items-center justify-center">
+            {/* Always present high-fidelity vector cover artwork */}
+            <CoverIllustration
+              storyId={featuredStory.id}
               className="w-full h-full object-cover"
-              onError={(e) => {
-                // styled fallback container
-                (e.target as HTMLElement).style.display = 'none';
-              }}
             />
+
+            {/* External cover image overlay (if loaded and available) */}
+            {featuredStory.coverImage && !failedImages[featuredStory.id] && (
+              <img
+                src={featuredStory.coverImage}
+                alt={featuredStory.title}
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={() => {
+                  setFailedImages(prev => ({ ...prev, [featuredStory.id]: true }));
+                }}
+              />
+            )}
+
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent lg:hidden" />
             <div className="absolute bottom-4 left-4 lg:hidden text-white">
               <span className="text-xs uppercase font-semibold text-amber-300">
@@ -147,7 +158,7 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({
             <div className="pt-4">
               <button
                 onClick={() => onSelectStory(featuredStory)}
-                className="w-full py-4 rounded-xl font-bold text-sm text-white bg-amber-600 hover:bg-amber-700 shadow-sm transition-all flex items-center justify-center gap-2 group"
+                className="w-full py-4 rounded-xl font-bold text-sm text-white bg-amber-600 hover:bg-amber-700 shadow-sm transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>이 동화 시작하기 (Start Reading)</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -176,16 +187,25 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({
               className="group bg-white rounded-2xl border border-stone-200/90 shadow-xs hover:shadow-md transition-all cursor-pointer overflow-hidden flex flex-col justify-between"
             >
               <div>
-                <div className="h-48 relative overflow-hidden bg-stone-100">
-                  <img
-                    src={story.coverImage}
-                    alt={story.title}
-                    referrerPolicy="no-referrer"
+                <div className="h-48 relative overflow-hidden bg-stone-900 flex items-center justify-center">
+                  {/* Always present high-fidelity vector cover artwork */}
+                  <CoverIllustration
+                    storyId={story.id}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      (e.target as HTMLElement).style.display = 'none';
-                    }}
                   />
+
+                  {/* External cover image overlay (if loaded and available) */}
+                  {story.coverImage && !failedImages[story.id] && (
+                    <img
+                      src={story.coverImage}
+                      alt={story.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={() => {
+                        setFailedImages(prev => ({ ...prev, [story.id]: true }));
+                      }}
+                    />
+                  )}
+
                   <div className="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded-md text-[11px] font-semibold text-stone-700 border border-stone-200">
                     {story.pages.length} Pages
                   </div>
@@ -207,7 +227,7 @@ export const CoverScreen: React.FC<CoverScreenProps> = ({
               <div className="p-4 pt-0">
                 <button
                   type="button"
-                  className="w-full py-2.5 rounded-lg text-xs font-bold bg-stone-100 group-hover:bg-amber-600 group-hover:text-white text-stone-800 transition-colors flex items-center justify-center gap-1"
+                  className="w-full py-2.5 rounded-lg text-xs font-bold bg-stone-100 group-hover:bg-amber-600 group-hover:text-white text-stone-800 transition-colors flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <span>동화 열기</span>
                   <ArrowRight className="w-3.5 h-3.5" />

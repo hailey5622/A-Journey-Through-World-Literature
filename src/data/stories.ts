@@ -1,4 +1,8 @@
 import { Story } from '../types/story';
+import aliceCover from '../assets/images/alice_wonderland_cover_1791639286144.jpg';
+import tomSawyerCover from '../assets/images/tom_sawyer_adventure_cover_1791639299842.jpg';
+import poeCover from '../assets/images/poe_mystery_cover_1791639320541.jpg';
+import peterPanCover from '../assets/images/peter_pan_cover.svg';
 
 export const STORIES: Story[] = [
   {
@@ -8,7 +12,7 @@ export const STORIES: Story[] = [
     genre: 'Fantasy',
     genreLabel: 'Fantasy 판타지',
     level: 'Grade 6 · CEFR A1',
-    coverImage: '/src/assets/images/alice_wonderland_cover_1791639286144.jpg',
+    coverImage: aliceCover,
     accentColor: '#3b82f6',
     summary: 'Alice follows an unusual White Rabbit with a pocket watch into a magical hole and discovers an extraordinary world.',
     targetExpressions: ['fall down', 'look at', 'run out of', 'hurry up', 'wake up'],
@@ -340,7 +344,7 @@ export const STORIES: Story[] = [
     genre: 'Adventure',
     genreLabel: 'Adventure 모험',
     level: 'Grade 6 · CEFR A1',
-    coverImage: '/src/assets/images/tom_sawyer_adventure_cover_1791639299842.jpg',
+    coverImage: tomSawyerCover,
     accentColor: '#10b981',
     summary: 'Tom Sawyer tricks his friends into whitewashing Aunt Polly’s fence and sails on a wooden raft down the Mississippi river.',
     targetExpressions: ['look after', 'run away', 'make friends with', 'look forward to'],
@@ -555,7 +559,7 @@ export const STORIES: Story[] = [
     genre: 'Horror',
     genreLabel: 'Mystery & Horror 미스터리',
     level: 'Grade 6 · CEFR A1',
-    coverImage: '/src/assets/images/poe_mystery_cover_1791639320541.jpg',
+    coverImage: poeCover,
     accentColor: '#8b5cf6',
     summary: 'A clever investigator and his loyal friend find a mysterious gold beetle and decode an ancient pirate cipher to locate lost treasure.',
     targetExpressions: ['search for', 'point at', 'dig up', 'figure out'],
@@ -749,7 +753,7 @@ export const STORIES: Story[] = [
     genre: 'Classics',
     genreLabel: 'Classics 고전 명작',
     level: 'Grade 6 · CEFR A1',
-    coverImage: '/src/assets/images/peter_pan_cover.svg',
+    coverImage: peterPanCover,
     accentColor: '#0284c7',
     summary: 'Wendy and her brothers learn to fly with fairy dust, traveling with Peter Pan to the magical island of Neverland.',
     targetExpressions: ['fly away', 'look after', 'believe in', 'grow up'],
